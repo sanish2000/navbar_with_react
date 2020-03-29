@@ -16,19 +16,21 @@ export default class AppRoute extends Component {
             return{sideDrawerOpen:!prevState.sideDrawerOpen}
         })
     }
+
+    backdropClickHandler=()=>{
+        this.setState({sideDrawerOpen:false});
+    }
     render() {
-        let sideDrawer;
         let backdrop;
 
         if(this.state.sideDrawerOpen){
-            sideDrawer=<SideDrawer></SideDrawer>
-            backdrop=<Backdrop></Backdrop>
+            backdrop=<Backdrop click={this.backdropClickHandler}></Backdrop>
         }
 
         return (
             <div>
                 <Navbar drawerToggleClickHandler={this.drawerToggleClickHandler}></Navbar>
-                {sideDrawer}
+                <SideDrawer show={this.sideDrawerOpen}></SideDrawer>
                 {backdrop}
             </div>
         )

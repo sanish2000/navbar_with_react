@@ -9,7 +9,7 @@ export const Navbar = (props) => {
     return (
         <header className="nav">
             <nav className="navigation-bar">
-                <ToggleButtton click={props.drawerClickHandeler}></ToggleButtton>
+                <ToggleButtton click={props.drawerToggleClickHandler}></ToggleButtton>
                 <div className="navigation-bar-logo"><a href="#Home"> THE LOGo</a> </div>
                 <div className="spacer"></div>
                 <div className="navigation-item">
