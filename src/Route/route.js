@@ -34,8 +34,10 @@ export default class AppRoute extends Component {
         return (
             <div>
                 <Navbar drawerToggleClickHandler={this.drawerToggleClickHandler}></Navbar>
-                {this.state.sideDrawerOpen?<><SideDrawer show={this.sideDrawerOpen}></SideDrawer>
-                {backdrop}</>:null}
+                {/* {this.state.sideDrawerOpen?<><SideDrawer show={this.sideDrawerOpen}></SideDrawer>
+                {backdrop}</>:null} */}
+                <SideDrawer show={this.state.sideDrawerOpen}></SideDrawer>
+                {backdrop}
                
             </div>
         )
