@@ -7,9 +7,12 @@ import Backdrop from '../Components/Backdrop/backdrop';
 
 
 export default class AppRoute extends Component {
-    state={
-        sideDrawerOpen:false
-    };
+    constructor(props){
+        super(props);
+        this.state={
+            sideDrawerOpen:false
+        }
+    }
 
     drawerToggleClickHandler=()=>{
         this.setState((prevState)=>{
@@ -22,6 +25,7 @@ export default class AppRoute extends Component {
     }
     render() {
         let backdrop;
+        console.log(this.state.sideDrawerOpen);
 
         if(this.state.sideDrawerOpen){
             backdrop=<Backdrop click={this.backdropClickHandler}></Backdrop>
@@ -30,8 +34,9 @@ export default class AppRoute extends Component {
         return (
             <div>
                 <Navbar drawerToggleClickHandler={this.drawerToggleClickHandler}></Navbar>
-                <SideDrawer show={this.sideDrawerOpen}></SideDrawer>
-                {backdrop}
+                {this.state.sideDrawerOpen?<><SideDrawer show={this.sideDrawerOpen}></SideDrawer>
+                {backdrop}</>:null}
+               
             </div>
         )
     }
